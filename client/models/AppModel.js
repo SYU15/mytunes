@@ -27,8 +27,12 @@ var AppModel = Backbone.Model.extend({
     }, this.get('songQueue'));
 
     params.library.on('removeSong', function(song) {
-      this.remove(song);
-    }, this.get('songQueue'));
+      //debugger;
+      this.get('songQueue').remove(song);
+      if(this.get('songQueue').models.length === 0) {
+        this.set('currentSong', null);
+      }
+    }, this);
   }
 
 });
