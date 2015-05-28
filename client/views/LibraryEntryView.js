@@ -6,10 +6,16 @@ var LibraryEntryView = Backbone.View.extend({
   template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><img class="addToPlaylist" src="assets/plus.png"/></td>'),
 
   events: {
-    'click': function() {
-      // this.model.play();
-      this.model.enqueue();
-    }
+    'click': 'enqueue',
+    'click .addToPlaylist': 'addSongToPlaylist'
+  },
+
+  enqueue: function() {
+    this.model.enqueue();
+  },
+
+  addSongToPlaylist: function() {
+    this.model.addSongToPlaylist();
   },
 
   render: function(){

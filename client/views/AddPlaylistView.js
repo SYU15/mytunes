@@ -14,7 +14,6 @@ var AddPlaylistView = Backbone.View.extend({
   },
 
   handleSubmit: function(e) {
-    debugger;
     e.preventDefault();
     var $name = this.$('#playlistName');
     this.collection.add({
