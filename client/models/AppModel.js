@@ -37,6 +37,10 @@ var AppModel = Backbone.Model.extend({
     params.library.on('addSongToPlaylist', function(song){
       this.at(0).addSong(song);
     }, this.get('playlists'));
+
+    params.library.on('removeFromPlaylist', function(song) {
+      this.at(0).removeSong(song);
+    }, this.get('playlists'));
   }
 
 });

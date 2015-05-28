@@ -4,21 +4,22 @@ tagName: 'table',
 
 className: 'playlist',
 
-template: _.template('<th class="playlist"><%- name %></th>'),
-
 initialize: function() {
-  return this.$el.append(this.template(this.model.attributes));
+  this.render();
+  this.model.get('songs').on('add', this.render, this);
+  this.model.get('songs').on('remove', this.render, this);
 },
 
 render: function(){
+  this.$el.children().detach();
 
-  // this.$el.html(this.template(this.model.attributes));
-  this.model.get('songs').forEach(this.renderSongs, this);
-},
+  var name = this.model.get('name');
 
-renderSongs: function(song) {
-  var playlistSong = new LibraryEntryView({model: song});
-  return this.$el.append(playlistSong);
+  return this.$el.html('<th>' + name + '</th>').append(
+    this.model.get('songs').map(function(song){
+      return new PlaylistEntryView({model: song}).render();
+    })
+  );
 }
 
 });

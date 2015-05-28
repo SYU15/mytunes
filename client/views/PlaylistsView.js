@@ -7,11 +7,11 @@ var PlaylistsView = Backbone.View.extend({
   },
 
   render: function() {
+    this.$el.children().detach();
     this.collection.forEach(this.renderPlaylist, this);
   },
 
   renderPlaylist: function(playlist) {
-
     var newPlaylist = new PlaylistView({model: playlist});
     return this.$el.append(newPlaylist.render());
   }
