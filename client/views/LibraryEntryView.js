@@ -7,15 +7,15 @@ var LibraryEntryView = Backbone.View.extend({
 
   events: {
     'click .song': 'enqueue',
-    'click .addToPlaylist': 'addSongToPlaylist'
+    'click .addToPlaylist': 'addToPlaylist'
   },
 
   enqueue: function() {
     this.model.enqueue();
   },
 
-  addSongToPlaylist: function() {
-    this.model.addSongToPlaylist();
+  addToPlaylist: function() {
+    this.model.addToPlaylist();
   },
 
   render: function(){

@@ -4,6 +4,7 @@ var AppModel = Backbone.Model.extend({
   initialize: function(params){
     this.set('currentSong', new SongModel());
     this.set('songQueue', new SongQueue());
+    this.set('currentPlaylist', new PlaylistModel());
     this.set('playlists', new Playlists());
 
     /* Note that 'this' is passed as the third argument. That third argument is
@@ -16,6 +17,11 @@ var AppModel = Backbone.Model.extend({
 
     params.library.on('play', function(song){
       this.set('currentSong', song);
+    }, this);
+
+    this.get('playlists').on('setCurrent', function(model){
+      debugger;
+      this.set('currentPlaylist', model);
     }, this);
 
     params.library.on('enqueue', function(song){
@@ -36,13 +42,19 @@ var AppModel = Backbone.Model.extend({
 
 
     // //these need to change!
-    // params.library.on('addSongToPlaylist', function(song){
-    //   //this.models
-    //   //iterate through models
-    //   //check if model.name === dropdown.name, if so add to that playlist
+    params.library.on('addToPlaylist', function(song){
+      this.get('currentPlaylist').addSong(song);
+      // debugger;
+      // this.on('addToPlaylist', function(playlist) {
+      //   debugger;
+      //   playlist.addSong(song);
+      // });
+      // //this.models
+      // //iterate through models
+      // //check if model.name === dropdown.name, if so add to that playlist
 
-    //   // this.at(0).addSong(song);
-    // }, this.get('playlists'));
+      // // this.at(0).addSong(song);
+    }, this);
 
     // params.library.on('removeFromPlaylist', function(song) {
     //   this.at(0).removeSong(song);

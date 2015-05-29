@@ -1,6 +1,6 @@
 var PlaylistDropdownView = Backbone.View.extend({
 
-  tagName: 'select',
+  tagName: 'div',
 
   initialize: function() {
     this.collection.on('add', this.render, this);

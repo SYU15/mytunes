@@ -6,5 +6,9 @@ var PlaylistModel = Backbone.Model.extend({
 
   removeSong: function(song) {
     this.get('songs').remove(song);
+  },
+
+  setCurrent: function() {
+    this.trigger('setCurrent', this);
   }
-});
+ });

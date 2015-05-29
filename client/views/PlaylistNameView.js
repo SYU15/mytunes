@@ -1,12 +1,13 @@
 var PlaylistNameView = Backbone.View.extend({
-  tagName: 'option',
+  tagName: 'p',
 
-  initialize: function() {
-    this.on('click', this.addToPlaylist, this);
+  events: {
+    'click' : 'setCurrent'
   },
 
-  addToPlaylist: function() {
-
+  setCurrent: function() {
+    debugger;
+    this.model.setCurrent();
   },
 
   render: function() {
