@@ -2,3 +2,11 @@
   width: 25px;
   height: auto;
 }
+
+.playlists {
+  font-size: 5em;
+}
+
+.playlists p {
+  font-size: 0.5em;
+}

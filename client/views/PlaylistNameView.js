@@ -6,7 +6,6 @@ var PlaylistNameView = Backbone.View.extend({
   },
 
   setCurrent: function() {
-    debugger;
     this.model.setCurrent();
   },
 
