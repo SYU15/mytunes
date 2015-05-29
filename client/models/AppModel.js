@@ -34,13 +34,19 @@ var AppModel = Backbone.Model.extend({
       }
     }, this);
 
-    params.library.on('addSongToPlaylist', function(song){
-      this.at(0).addSong(song);
-    }, this.get('playlists'));
 
-    params.library.on('removeFromPlaylist', function(song) {
-      this.at(0).removeSong(song);
-    }, this.get('playlists'));
+    // //these need to change!
+    // params.library.on('addSongToPlaylist', function(song){
+    //   //this.models
+    //   //iterate through models
+    //   //check if model.name === dropdown.name, if so add to that playlist
+
+    //   // this.at(0).addSong(song);
+    // }, this.get('playlists'));
+
+    // params.library.on('removeFromPlaylist', function(song) {
+    //   this.at(0).removeSong(song);
+    // }, this.get('playlists'));
   }
 
 });
